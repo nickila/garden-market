@@ -9,7 +9,7 @@ import Times from "../components/Times/index";
 import Products from "../components/Products";
 import MarketTitle from "../components/MarketTitle";
 import Address from "../components/Address/index";
-import MessageBoard from "../components/MessageBoard";
+// import MessageBoard from "../components/MessageBoard";
 import Image from "../components/Image";
 import MembersList from "../components/MembersList";
 import "../components/Market.css";

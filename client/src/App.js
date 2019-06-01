@@ -20,6 +20,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import AdminMessages from "./pages/AdminMessages";
 import MessageBoardPage from "./pages/MessageBoardPage";
+import ProfileInput from "./pages/ProfileInput";
 // import Join from "./pages/Join";
 // import PrivateRoute from "./components/private-route/PrivateRoute";
 
@@ -32,7 +33,7 @@ if (localStorage.jwtToken) {
   const decoded = jwt_decode(token);
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
-// Check for expired token
+  // Check for expired token
   const currentTime = Date.now() / 1000; // to get in milliseconds
   if (decoded.exp < currentTime) {
     // Logout user
@@ -46,29 +47,29 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-      <Router>
-        <div>
-          <Navbar />
+        <Router>
           <div>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/map" component={mHome} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/searchresult" component={SearchResult} />
-              <Route exact path="/mymarket/:id" component={MyMarket} />
-              <Route exact path="/newmarket" component={NewMarket} />
-              <Route exact path="/about" component={About} />
-              {/* The following line will take user to a specific market by id */}
-              <Route exact path="/markets/:id" component={Market} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/admin/messages" component={AdminMessages} />
-              <Route exact path="/posts/:id" component={MessageBoardPage} />
-
-              <Route component={NoMatch} />
-            </Switch>
+            <Navbar />
+            <div>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/map" component={mHome} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/searchresult" component={SearchResult} />
+                <Route exact path="/mymarket/:id" component={MyMarket} />
+                <Route exact path="/newmarket" component={NewMarket} />
+                <Route exact path="/about" component={About} />
+                {/* The following line will take user to a specific market by id */}
+                <Route exact path="/markets/:id" component={Market} />
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/admin/messages" component={AdminMessages} />
+                <Route exact path="/posts/:id" component={MessageBoardPage} />
+                <Route exact path="/profile/:id" component={ProfileInput} />
+                <Route component={NoMatch} />
+              </Switch>
+            </div>
           </div>
-        </div>
-      </Router>
+        </Router>
       </Provider>
     );
   }

@@ -10,7 +10,7 @@ class Register extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
+      username: "",
       email: "",
       password: "",
       password2: "",
@@ -37,7 +37,7 @@ class Register extends Component {
   onSubmit = e => {
     e.preventDefault();
     const newUser = {
-      name: this.state.name,
+      username: this.state.username,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
@@ -61,19 +61,19 @@ class Register extends Component {
                 </h5>
                 <form noValidate onSubmit={this.onSubmit}>
                   <div className="emailDiv">
-                    <label htmlFor="name" className="label">Name</label>
+                    <label htmlFor="username" className="label">Username</label>
 
                     <input
                       onChange={this.onChange}
-                      value={this.state.name}
-                      error={errors.name}
+                      value={this.state.username}
+                      error={errors.username}
                       id="name"
                       type="text"
                       className={classnames("form-control form-control-lg", {
-                        invalid: errors.name
+                        invalid: errors.username
                       })}
                     />
-                    <span className="red-text">{errors.name}</span>
+                    <span className="red-text">{errors.username}</span>
                   </div>
                   <div className="emailDiv">
                     <label htmlFor="email" className="label">Email</label>
