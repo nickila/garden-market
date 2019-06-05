@@ -11,7 +11,7 @@ function Home() {
                     <Carousel />
                 </div>
             </div>
-            
+
         </div>
     )
 }

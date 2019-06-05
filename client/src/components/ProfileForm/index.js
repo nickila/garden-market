@@ -1,5 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
+const mongoose = require("mongoose");
+
 
 
 class ProfileForm extends React.Component {
@@ -44,9 +46,11 @@ class ProfileForm extends React.Component {
     console.log(this.state.firstName);
     // const userName = this.props.auth.user.name;
     // var email = this.props.auth.user.email;
-    // var myid = mongoose.Types.ObjectId();
+    var myid = mongoose.Types.ObjectId();
+    console.log(myid.toString());
 
     API.saveUserProfile({
+      _id: myid,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       address: this.state.address,
@@ -54,8 +58,8 @@ class ProfileForm extends React.Component {
       city: this.state.city,
       zip: this.state.zip,
       neighborhood: this.state.neighborhood
-    }).then(this.props.history.push("/profile"));
-    console.log("saveUserProfile ProfileForm.js");
+    }).then(this.props.history.push("profile/" + myid));
+    console.log("check");
   };
 
   render() {
@@ -94,7 +98,6 @@ class ProfileForm extends React.Component {
                             placeholder="Appleseed"
                             value={this.state.lastName}
                             onChange={this.handleInputChange}
-                            disabled
                           />
                         </div>
                       </div>

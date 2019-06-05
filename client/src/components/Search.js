@@ -20,20 +20,18 @@ class Search extends React.Component {
             API.geocodeAddress(this.state.address).then(res => {
                 console.log(res.data.results[0].geometry.location);
                 this.props.history.push(
-                    '/searchresult',{address:res.data.results[0]}
-                                      )
+                    '/searchresult', { address: res.data.results[0] }
+                )
             });
         }
     }
     render() {
         return (
-            <div className="col-md-12 mx-auto searchDiv">
-                <label className="searchMessage">FIND A MARKET NEAR YOU</label>
+            <div className="col-md-3 mx-auto searchDiv">
                 <form className="input-group">
-                    <input type="text" className="form-control" name="address" placeholder="Roseville MN" value={this.state.address} onChange={this.handleInputChange} />
+                    <input type="text" className="form-control" name="address" placeholder="Search for a market" value={this.state.address} onChange={this.handleInputChange} />
                     <div className="input-group-btn">
-                        <button type="submit" className="btn addressSearchBtn" onClick={this.handleFormSubmit}>
-                        SEARCH</button>
+                        <button type="submit" className="btn addressSearchBtn" onClick={this.handleFormSubmit}>SEARCH</button>
                     </div>
                 </form>
             </div >

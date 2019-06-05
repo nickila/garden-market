@@ -15,7 +15,8 @@ class Navbar extends Component {
 
   render() {
     const isLoggedIn = this.props.auth.isAuthenticated;
-    const username = this.props.auth.user.username;
+    const username = this.props.auth.user.name;
+    console.log(username);
     const admin = "admin";
     // let userMarketId =
     let adminLoggedIn = false;
@@ -24,7 +25,7 @@ class Navbar extends Component {
     } else {
       adminLoggedIn = false;
     }
-    console.log(username);
+
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <Link className="navbar-brand" to="/">
@@ -73,7 +74,7 @@ class Navbar extends Component {
                 className={
                   "nav-link " + (isLoggedIn ? "" : "disabled dis-link")
                 }
-                to="/profile"
+                to={"/profile/" + username}
               >
                 My Profile
               </Link>
